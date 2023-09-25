@@ -1,0 +1,20 @@
+{% extends "CarWash_App/master.html" %}
+
+
+{% load static %}
+
+{% block title  %}
+
+Create Prices
+
+<!-- start form-->
+
+<form action="" method="post"> {% csrf_token %}
+
+    {{form.as_p}}
+    <button type="submit">Save</button>
+</form>
+
+<!-- end form-->
+                        
+{% endblock  %}

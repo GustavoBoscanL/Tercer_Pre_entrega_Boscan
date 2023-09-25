@@ -1,0 +1,53 @@
+{% extends "CarWash_App/master.html" %}
+
+
+{% load static %}
+
+
+{% block title  %}
+
+<h1>Search</h1>
+    <form method="GET" action="">
+        <label for="q">Search:</label>
+        <input type="text" id="q" name="q" placeholder="">
+        <button type="submit">GO</button>
+    </form>
+
+
+
+<!-- From here the sample of the results begins -->
+    
+    
+    <p>{{ query }}</p>
+    
+    <!-- Show results for users -->
+    <h2>Users:</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} - {{ user.lastename }} - {{ user.email }} - {{ user.car_brand }} - {{ user.car_plate }}</li>
+        {% empty %} 
+            <p>No users found.</p>
+           
+        {% endfor %}
+    </ul>
+    
+    <!-- Show results for employees -->
+    <h2>Employees:</h2>
+    <ul>
+        {% for employee in employees %}
+            <li>{{ employee.name }} - {{ employee.lastename }} - {{ employee.email }} - {{ employee.age }} - {{ employee.position }}</li>
+        {% empty %}
+            <p>No employees found.</p>
+        {% endfor %}
+    </ul>
+    
+    <!-- Show results for prices -->
+    <h2>Washin Prices:</h2>
+    <ul>
+        {% for price in prices %}
+            <li>{{ price.car_type }} - {{ price.price }}</li>
+        {% empty %}
+            <p>No prices found.</p>
+        {% endfor %}
+    </ul>
+{% endblock  %}
