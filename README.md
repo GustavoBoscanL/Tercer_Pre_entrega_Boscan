@@ -1,7 +1,7 @@
 # Tercera_pre_entrega_Boscan
 
 ## **Proyecto de Gestión de Datos**
-Este proyecto es una aplicación web que utiliza herencia de HTML para gestionar datos de usuarios, empleados y precios de lavandería. El objetivo principal es proporcionar un sistema de gestión de datos robusto y fácil de usar que permita a los usuarios realizar varias operaciones, como agregar datos, buscar en la base de datos y visualizar información de manera eficiente.
+Este proyecto es una aplicación web que utiliza herencia de HTML para gestionar datos de usuarios, empleados y precios del autolavado. El objetivo principal es proporcionar un sistema de gestión de datos robusto y fácil de usar que permita a los usuarios realizar varias operaciones, como agregar datos, buscar en la base de datos y visualizar información de manera eficiente.
 
 ## **Características Principales**
 **-Herencia de HTML**: Este proyecto utiliza herencia de HTML para mantener un 
