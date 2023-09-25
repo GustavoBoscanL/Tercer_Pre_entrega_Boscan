@@ -50,7 +50,7 @@ python manage.py runserver
 4.   Accede a la Aplicación: Abre tu navegador web y ve a la dirección http://localhost:8000 para acceder a la aplicación.
 
 
-##URLs y Rutas
+URLs y Rutas
 
 
 *   /users/: Esta ruta te llevará a la sección de gestión de usuarios.
