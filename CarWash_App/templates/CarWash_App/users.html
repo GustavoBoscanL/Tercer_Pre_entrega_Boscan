@@ -8,12 +8,19 @@
 Create Users
                    
 <!-- start form-->
-
-<form action="" method="post"> {% csrf_token %}
-
-    {{form.as_p}}
+<h2>{% if form.instance.pk %}
+    Update
+    {% else %}
+    Create
+    {% endif %}
+     User
+</h2>
+<form method="post" enctype="multipart/form-data" 
+    action="{% if form.instance.pk %}{% url 'UserUpdate' pk=form.instance.pk %}{% else %}{% url 'Users' %}{% endif %}"">
+    {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit">Save</button>
-</form>
+  </form>
 
 <!-- end form-->
 {% endblock  %}

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import user_form, employees_form, washing_price_form
 from CarWash_App.models import User, Employees, Washing_prices
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView
 
 def home(request): #home page
     return render(request, "CarWash_App/home.html")
@@ -15,7 +17,7 @@ def employees(request): #employyes page
 def whashing_prices(request): #Prices page
     return render(request, "CarWash_App/washing_prices.html")
 
-
+'''
 #We make the form to create the users
 def create_user(request): 
 
@@ -34,6 +36,20 @@ def create_user(request):
 
 
     return render(request, 'CarWash_App/users.html', {'form': form_user})
+'''
+#Trying to use CreateViews and UpdateViews for users
+class user_create(CreateView):
+    model = User
+    form_class = user_form
+    template_name = 'CarWash_App/users.html'  
+    success_url = reverse_lazy('Home')  # succes_url ---> home
+ 
+class user_update(UpdateView):
+    model = User
+    form_class = user_form
+    template_name = 'CarWash_App/users.html'
+    success_url = reverse_lazy('Home')  # succes_url ---> home
+
 
 #We make the form to create the employees
 def create_employees(request): 
