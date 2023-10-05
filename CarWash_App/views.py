@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from .forms import user_form, employees_form, washing_price_form
 from CarWash_App.models import User, Employees, Washing_prices
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 
 def home(request): #home page
     return render(request, "CarWash_App/home.html")
@@ -43,14 +44,23 @@ class user_create(CreateView):
     form_class = user_form
     template_name = 'CarWash_App/users.html'  
     success_url = reverse_lazy('Home')  # succes_url ---> home
- 
+
+#Create a list from user to update, edit o delete
+
 class user_update(UpdateView):
     model = User
     form_class = user_form
-    template_name = 'CarWash_App/users.html'
-    success_url = reverse_lazy('Home')  # succes_url ---> home
+    template_name = 'CarWash_App/users.html' 
+    success_url = reverse_lazy('UserList')
 
+class UserDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('UserList')
 
+class UserListView(ListView):
+    model = User
+    template_name = 'CarWash_App/user_list.html'
+    context_object_name = 'users'
 #We make the form to create the employees
 def create_employees(request): 
 
